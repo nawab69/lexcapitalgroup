@@ -4,7 +4,6 @@
     <link type="text/css" rel="stylesheet" href="{{asset('logina/fonts/flaticon/font/flaticon.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('logina/css/style.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('logina/css/skins/default.css')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
         a:hover{
