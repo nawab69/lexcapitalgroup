@@ -7,7 +7,7 @@
     <!-- For Resposive Device -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> @yield('title') </title>
+    <title> @yield('title','LEX Capital Group') </title>
 
 {{-- #######################################  Template CSS  ########################################### --}}
 <!-- Place favicon.ico in the root directory -->

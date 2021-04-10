@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-2 col-sm-2">
                             <div class="slider__play" data-animation="fadeInRight" data-delay=".9s">
-                                <a href="https://youtu.be/yJg-Y5byMMw" class="slider__play-btn" data-fancybox><i class="fal fa-play"></i></a>
+                                <a href="/" class="slider__play-btn" data-fancybox><i class="fal fa-play"></i></a>
                             </div>
                         </div>
                     </div>
