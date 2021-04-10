@@ -16,11 +16,11 @@
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-md-10 col-sm-10">
                             <div class="slider__content">
-                                <span data-animation="fadeInUp" data-delay=".3s">We’ve added a new exciting feature in v2.0.</span>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">Get all the essentials <br> in a lightweight package</h1>
-                                <div class="slider__btn" data-animation="fadeInUp" data-delay=".7s">
-                                    <a href="contact.html" class="z-btn z-btn-transparent">Get a quote</a>
-                                </div>
+{{--                                <span data-animation="fadeInUp" data-delay=".3s">We’ve added a new exciting feature in v2.0.</span>--}}
+                                <h1 data-animation="fadeInUp" data-delay=".5s">Creating the right opportunities for you and your business.</h1>
+{{--                                <div class="slider__btn" data-animation="fadeInUp" data-delay=".7s">--}}
+{{--                                    <a href="contact.html" class="z-btn z-btn-transparent">Get a quote</a>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-2 col-sm-2">
@@ -42,11 +42,11 @@
                     <div class="row">
                         <div class="col-xl-9 col-lg-9 col-md-10 col-sm-10">
                             <div class="slider__content">
-                                <span data-animation="fadeInUp" data-delay=".3s">We’ve added a new exciting feature in v2.0.</span>
-                                <h1 data-animation="fadeInUp" data-delay=".5s">Get all the essentials <br> in a lightweight package</h1>
-                                <div class="slider__btn" data-animation="fadeInUp" data-delay=".7s">
-                                    <a href="contact.html" class="z-btn z-btn-transparent">Get a quote</a>
-                                </div>
+{{--                                <span data-animation="fadeInUp" data-delay=".3s">We’ve added a new exciting feature in v2.0.</span>--}}
+                                <h1 data-animation="fadeInUp" data-delay=".5s">Creating the right opportunities for you and your business.</h1>
+{{--                                <div class="slider__btn" data-animation="fadeInUp" data-delay=".7s">--}}
+{{--                                    <a href="contact.html" class="z-btn z-btn-transparent">Get a quote</a>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-2 col-sm-2">
@@ -255,7 +255,7 @@
                         </div>
                         <div class="services__content">
                             <h3><a href="#">CUSTODY</a></h3>
-                            <p>Being a custodian first and foremost, our web application allows market users to engage in business with an added layer of security and advanced technology that ITA provides.</p>
+                            <p>Being a custodian first and foremost, our web application allows market users to engage in business with an added layer of security and advanced technology that LEX provides.</p>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
                         </div>
                         <div class="services__content">
                             <h3><a href="#">RISK MANAGEMENT</a></h3>
-                            <p>ITA strives to empower traders in their daily needs by providing a safe, secure and transparent environment for business.</p>
+                            <p>LEX strives to empower traders in their daily needs by providing a safe, secure and transparent environment for business.</p>
                         </div>
                     </div>
                 </div>
@@ -277,7 +277,7 @@
                         </div>
                         <div class="services__content">
                             <h3><a href="#">SETTLEMENT</a></h3>
-                            <p>Your financial transactions, affiliate networks and business connections at a glance, protected by ITA proprietary encryption and digital security.</p>
+                            <p>Your financial transactions, affiliate networks and business connections at a glance, protected by LEX proprietary encryption and digital security.</p>
                         </div>
                     </div>
                 </div>
