@@ -14,6 +14,7 @@
                                     <ul>
                                         <li><a href="{{url('about-us')}}">About Us</a></li>
                                         <li><a href="{{url('contact-us')}}">Contact Us</a></li>
+                                        <li><a href="{{url('/terms-conditions')}}">Terms And Conditions</a></li>
                                     </ul>
                                 </div>
                             </div>
