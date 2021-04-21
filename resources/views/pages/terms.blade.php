@@ -14,7 +14,6 @@
                {!! settings('terms') !!}
 
             </div> <!-- /.text -->
-{{--            <img src="{{asset('frontend/images/inner-page/1.jpg')}}" alt="" class="float-left">--}}
         </div> <!-- /.top-content -->
     </div> <!-- /.container -->
 </div> <!-- /.who-we-are -->

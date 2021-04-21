@@ -9,8 +9,8 @@
                     <div class="col-xl-6 col-lg-5 col-md-4">
                         <div class="header__social">
                             <ul>
-                                <li><a href="{{settings('facebook','#')}}"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="{{settings('twitter','#')}}"><i class="fab fa-twitter"></i></a></li>
+                                <!--<li><a href="{{settings('facebook','#')}}"><i class="fab fa-facebook-f"></i></a></li>-->
+                                <li><a href="{{settings('twitter','https://twitter.com/LEXCapitalGroup')}}"><i class="fab fa-twitter"></i></a></li>
 {{--                                <li><a href="{{settings('linkedin','#')}}"><i class="fab fa-linkedin-in"></i></a></li>--}}
 {{--                                <li><a href="{{settings('pinterest','#')}}"><i class="fab fa-pinterest-p"></i></a></li>--}}
                             </ul>
@@ -19,12 +19,12 @@
                     <div class="col-xl-6 col-lg-7 col-md-8">
                         <div class="header__info f-right">
                             <ul>
-                                <li>
-                                    <a href="tel:{{settings('phone','(012) 345 - 6789')}}">
-                                        <i class="fal fa-phone-alt"></i>
-                                        {{settings('phone','(012) 345 - 6789')}}
-                                    </a>
-                                </li>
+                                <!--<li>-->
+                                <!--    <a href="tel:{{settings('phone','(012) 345 - 6789')}}">-->
+                                <!--        <i class="fal fa-phone-alt"></i>-->
+                                <!--        {{settings('phone','(012) 345 - 6789')}}-->
+                                <!--    </a>-->
+                                <!--</li>-->
                                 <li>
                                     <a href="mailto:{{settings('admin_mail','admin@mail.com')}}">
                                         <i class="fal fa-envelope"></i>
@@ -59,6 +59,9 @@
                                     <ul>
                                         <li>
                                             <a href="{{url('/')}}">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="#services">Services</a>
                                         </li>
                                         <li><a href="{{url('/about-us')}}">About Us </a></li>
                                         <li><a href="{{url('/terms-conditions')}}">Terms And Conditions</a></li>

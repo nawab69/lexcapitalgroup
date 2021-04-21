@@ -54,7 +54,7 @@
             <div class="row no-gutters">
                 <div class="col-xl-12">
                     <div class="contact__map">
-                        <iframe src="https://maps.google.com/maps?hl=en&amp;q=Dhaka+()&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d642.3848472056861!2d54.357603373825405!3d24.48673478667116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e667b1423d881%3A0x1ffe9e4e0dc9528e!2sWTCAD%20(World%20Trade%20Center%20Abu%20Dhabi)!5e0!3m2!1sen!2sbd!4v1618831813858!5m2!1sen!2sbd" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         <div class="contact__wrapper d-md-flex justify-content-between wow fadeInUp" data-wow-delay=".3s">
                             <div class="contact__info mr-100">
                                 <h3>Get in touch</h3>
@@ -63,11 +63,11 @@
                                         <h4>Address</h4>
                                         <p>{{settings('address')}}</p>
                                     </li>
-                                    <li>
-                                        <h4>call us</h4>
-                                        <p><a href="tel:{{settings('phone')}}">{{settings('phone')}}</a></p>
-{{--                                        <p><a href="tel:(204)-888-234-674">(204) 888 234 674</a></p>--}}
-                                    </li>
+<!--                                    <li>-->
+<!--                                        <h4>call us</h4>-->
+<!--                                        <p><a href="tel:{{settings('phone')}}">{{settings('phone')}}</a></p>-->
+<!--{{--                                        <p><a href="tel:(204)-888-234-674">(204) 888 234 674</a></p>--}}-->
+<!--                                    </li>-->
                                     <li>
                                         <h4>Email Address</h4>
                                         <p><a href="mailto:{{settings('admin_mail')}}">{{settings('admin_mail')}}</a></p>

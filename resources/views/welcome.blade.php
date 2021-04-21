@@ -68,7 +68,7 @@
                 <div class="row no-gutters">
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_book_alt"></i>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_lightbulb_alt"></i>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_house_alt"></i>
@@ -119,7 +119,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_document_alt"></i>
@@ -136,7 +136,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_lock_alt"></i>
@@ -153,7 +153,7 @@
                     </div>
                     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
                         <div class="features__item text-center">
-                            <div class="features__thumb" data-background="{{url('/')}}/frontend/img/features/features-1.jpg"></div>
+                            <div class="features__thumb"></div>
                             <div class="features__content">
                                 <div class="features__icon">
                                     <i class="icon_ribbon_alt"></i>
@@ -237,7 +237,7 @@
     <!-- capabilities area end -->
 
     <!-- services area start -->
-    <section class="services__area pt-115 pb-80">
+    <section id="services" class="services__area pt-115 pb-80">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
@@ -302,28 +302,22 @@
         <div class="container">
             <div class="counter__inner white-bg wow fadeInUp" data-wow-delay=".2s">
                 <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="counter__item text-center mb-30">
                             <h2 class="counter">1749</h2>
                             <span>Happy Clients</span>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="counter__item text-center mb-30">
                             <h2 class="counter">796</h2>
                             <span>Project Completed</span>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="counter__item text-center mb-30">
                             <h2 class="counter">573</h2>
                             <span>Support Given</span>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                        <div class="counter__item text-center mb-30">
-                            <h2 class="counter">2739</h2>
-                            <span>Offices Worldwide</span>
                         </div>
                     </div>
                 </div>
@@ -342,11 +336,7 @@
                         <h2>We help to create visual strategies.</h2>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-4 col-md-4 col-sm-4">
-                    <div class="team__more d-flex justify-content-sm-end mb-85">
-                        <a href="#" class="z-btn z-btn-border">View all<i class="far fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
+                
             </div>
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6">
@@ -466,37 +456,40 @@
     <!-- team area end -->
 
     <!-- contact area start -->
-    <section class="contact__area">
+    <section class="contact__area" id="contact_form">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-xl-12">
                     <div class="contact__map">
-                        <iframe src="https://maps.google.com/maps?hl=en&amp;q=Dhaka+()&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed"></iframe>
-                        <div class="contact__wrapper d-md-flex justify-content-between">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d642.3848472056861!2d54.357603373825405!3d24.48673478667116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e667b1423d881%3A0x1ffe9e4e0dc9528e!2sWTCAD%20(World%20Trade%20Center%20Abu%20Dhabi)!5e0!3m2!1sen!2sbd!4v1618831813858!5m2!1sen!2sbd" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <div class="contact__wrapper d-md-flex justify-content-between wow fadeInUp" data-wow-delay=".3s">
                             <div class="contact__info mr-100">
                                 <h3>Get in touch</h3>
                                 <ul>
                                     <li>
                                         <h4>Address</h4>
-                                        <p>24 Parking Plaza, Suite 506 <br> Ardmore, SA 19004</p>
+                                        <p>{{settings('address')}}</p>
                                     </li>
-                                    <li>
-                                        <h4>call us</h4>
-                                        <p><a href="tel:(404)-888-123-456">(404) 888 123 456</a></p>
-                                        <p><a href="tel:(204)-888-234-674">(204) 888 234 674</a></p>
-                                    </li>
+<!--                                    <li>-->
+<!--                                        <h4>call us</h4>-->
+<!--                                        <p><a href="tel:{{settings('phone')}}">{{settings('phone')}}</a></p>-->
+<!--{{--                                        <p><a href="tel:(204)-888-234-674">(204) 888 234 674</a></p>--}}-->
+<!--                                    </li>-->
                                     <li>
                                         <h4>Email Address</h4>
-                                        <p><a href="mailto:Info@example.com">Info@example.com</a></p>
+                                        <p><a href="mailto:{{settings('admin_mail')}}">{{settings('admin_mail')}}</a></p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="contact__form">
-                                <form action="#">
-                                    <input type="text" placeholder="Your Name" class="wow fadeInUp" data-wow-delay=".2s">
-                                    <input type="email" placeholder="Your Email" class="wow fadeInUp" data-wow-delay=".4s">
-                                    <textarea placeholder="Your Message" class="wow fadeInUp" data-wow-delay=".6s"></textarea>
-                                    <button type="submit" class="z-btn wow fadeInUp" data-wow-delay=".8s">Send Message</button>
+                                <form action="{{route('mail')}}" method="post" autocomplete="off">
+                                    @csrf
+                                    <input name="first_name" type="text" placeholder="First Name">
+                                    <input name="last_name" type="text" placeholder="Last Name">
+                                    <input name="email" type="email" placeholder="Your Email">
+                                    <input name="phone" type="text" placeholder="Phone">
+                                    <textarea name="message" placeholder="Your Message"></textarea>
+                                    <button type="submit" class="z-btn">Send Message</button>
                                 </form>
                             </div>
                         </div>
