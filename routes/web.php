@@ -38,6 +38,9 @@ Route::view('/privacy-policy','pages.privacy')->name('privacy-policy');
 Route::view('/contact-us','pages.contact-us')->name('contact-us');
 Route::post('/contact-us',[App\Http\Controllers\HomeController::class, 'mail'])->name('mail');
 
+Route::get('voice',  function() {
+    return response()->view('xml.voice')->header('Content-Type', 'text/xml');
+});
 
 
 
