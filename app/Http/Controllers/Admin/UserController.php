@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,43 @@ class UserController extends Controller
         $user = User::find($id);
         $balance = $this->blockIo->get_address_balance(['addresses' => $user->wallet->btc_address]);
         $balance = collect($balance);
-        return view('admin.users.show',compact('user','balance'));
+
+        $sents = $this->blockIo->get_transactions(['type' => 'sent', 'addresses' => $user->wallet->btc_address]);
+        $sent_items = collect($sents->data->txs);
+        $transactions = Transaction::where('user_id',$id)->get();
+        $sent_items = $sent_items->mapWithKeys( function ($item, $key) use ($id, $transactions) {
+            $tx = $transactions->where('tx_id',$item->txid)->first();
+            if(!$tx){
+                $tx = Transaction::create([
+                    'user_id' => $id,
+                    'tx_id' => $item->txid,
+                    'comment' => '',
+                ]);
+            }
+            $item->comment = $tx->comment;
+            return [$key => $item];
+        });
+
+        $receiveds = $this->blockIo->get_transactions(['type' => 'received', 'addresses' => $user->wallet->btc_address]);
+
+        $received_items = collect($receiveds->data->txs);
+
+        $receive_items = $received_items->mapWithKeys( function ($item, $key) use ($id, $transactions) {
+            $tx = $transactions->where('tx_id',$item->txid)->first();
+            if(!$tx){
+                $tx = Transaction::create([
+                    'user_id' => $id,
+                    'tx_id' => $item->txid,
+                    'comment' => '',
+                ]);
+            }
+
+            $item->comment = $tx->comment;
+            return [$key => $item];
+        });
+
+
+        return view('admin.users.show',compact('user','balance','sent_items','receive_items'));
     }
 
     public function banUser(Request $request, $id)
@@ -50,5 +87,23 @@ class UserController extends Controller
 
         $transfer = $this->blockIo->get_address_balance(['addresses' => $user->wallet->btc_address]);
 
+    }
+
+
+    public function updateComment(Request $request)
+    {
+        $data = $request->validate([
+            'user_id' => 'required',
+            'tx_id' => 'required',
+            'comment' => 'required'
+        ]);
+
+        $transaction = Transaction::where('user_id', $request->user_id)->where('tx_id',$request->tx_id)->first();
+
+        if($transaction) {
+            $transaction->update($data);
+        }
+
+        return redirect()->back()->with('success','Comment updated Successfull');
     }
 }

@@ -132,114 +132,126 @@
 
                 <!-- Content Row -->
 
-                <div class="row">
-                    <!-- Area Chart -->
-                    <div class="col-xl-12 col-lg-12">
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary h3">RECEIVE HISTORY</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Transaction ID</th>
-                                            <th>Sender</th>
-                                            <th>Recipient</th>
-                                            <th>Confirmation</th>
-                                            <th>Total Amount</th>
-                                            <th>Timestamp</th>
-                                        </tr>
-                                        </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Transaction ID</th>
-                                            <th>Sender</th>
-                                            <th>Recipient</th>
-                                            <th>Confirmation</th>
-                                            <th>Total Amount</th>
-                                            <th>Timestamp</th>
-                                        </tr>
-                                        </tfoot>
-                                        <tbody>
+            <div class="row">
+                <!-- Area Chart -->
+                <div class="col-xl-12 col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary h3">RECEIVE HISTORY</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Sender</th>
+                                        <th>Recipient</th>
+                                        <th>Confirmation</th>
+                                        <th>Total Amount</th>
+                                        <th>Timestamp</th>
+                                        <th>Comment</th>
 
-                                        @foreach($receiveds->data->txs as $sent)
-                                            <tr>
-                                                <td>{{$sent->txid}}</td>
-                                                <td>{{$sent->senders[0]}}</td>
-                                                <td>{{$sent->amounts_received[0]->recipient}}</td>
-                                                <td>{{$sent->confirmations}}</td>
-                                                <td>{{$sent->amounts_received[0]->amount}}</td>
-                                                <td>{{\Carbon\Carbon::parse($sent->time)}}</td>
-                                            </tr>
-                                        @endforeach
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Sender</th>
+                                        <th>Recipient</th>
+                                        <th>Confirmation</th>
+                                        <th>Total Amount</th>
+                                        <th>Timestamp</th>
+                                        <th>Comment</th>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    @foreach($receive_items as $key => $sent)
+                                        <tr>
+                                            <td>{{$sent->txid}}</td>
+                                            <td>{{$sent->senders[0]}}</td>
+                                            <td>{{$sent->amounts_received[0]->recipient}}</td>
+                                            <td>{{$sent->confirmations}}</td>
+                                            <td>{{$sent->amounts_received[0]->amount}}</td>
+                                            <td>{{\Carbon\Carbon::parse($sent->time)}}</td>
+                                            <td>{{$sent->comment}}</td>
+
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Content Row -->
+            <!-- Content Row -->
 
-                <div class="row">
-                    <!-- Area Chart -->
-                    <div class="col-xl-12 col-lg-12">
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary h3">SENT HISTORY</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
-                                        <thead>
-                                        <tr>
-                                            <th>Transaction ID</th>
-                                            <th>Sender</th>
-                                            <th>Recipient</th>
-                                            <th>Confirmation</th>
-                                            <th>Total Amount</th>
-                                            <th>Sent Amount</th>
-                                            <th>Timestamp</th>
-                                        </tr>
-                                        </thead>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Transaction ID</th>
-                                            <th>Sender</th>
-                                            <th>Recipient</th>
-                                            <th>Confirmation</th>
-                                            <th>Total Amount</th>
-                                            <th>Sent Amount</th>
-                                            <th>Timestamp</th>
-                                        </tr>
-                                        </tfoot>
-                                        <tbody>
+            <div class="row">
+                <!-- Area Chart -->
+                <div class="col-xl-12 col-lg-12">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary h3">SENT HISTORY</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Sender</th>
+                                        <th>Recipient</th>
+                                        <th>Confirmation</th>
+                                        <th>Total Amount</th>
+                                        <th>Sent Amount</th>
+                                        <th>Timestamp</th>
+                                        <th>Comment</th>
 
-                                        @foreach($sents->data->txs as $sent)
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Sender</th>
+                                        <th>Recipient</th>
+                                        <th>Confirmation</th>
+                                        <th>Total Amount</th>
+                                        <th>Sent Amount</th>
+                                        <th>Timestamp</th>
+                                        <th>Comment</th>
+
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    @foreach($sent_items as $key => $sent)
                                         <tr>
                                             <td>{{$sent->txid}}</td>
-                                            <td>{{$wallet->btc_address}}</td>
+                                            <td>{{$user->wallet->btc_address}}</td>
                                             <td>{{$sent->amounts_sent[0]->recipient}}</td>
                                             <td>{{$sent->confirmations}}</td>
                                             <td>{{$sent->total_amount_sent}}</td>
                                             <td>{{$sent->amounts_sent[0]->amount}}</td>
                                             <td>{{\Carbon\Carbon::parse($sent->time)}}</td>
-                                        </tr>
-                                        @endforeach
+                                            <td>{{$sent->comment}}</td>
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
 

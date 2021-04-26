@@ -52,6 +52,7 @@ use Illuminate\Support\Facades\Route;
     // Users Details
     Route::get('users',[\App\Http\Controllers\Admin\UserController::class, 'index'])->middleware('auth:admin');
     Route::get('users/{id}',[\App\Http\Controllers\Admin\UserController::class, 'show'])->name('users.show')->middleware('auth:admin');
+    Route::post('users/{id}',[\App\Http\Controllers\Admin\UserController::class, 'updateComment'])->name('users.comment')->middleware('auth:admin');
     Route::post('users/{id}/ban',[\App\Http\Controllers\Admin\UserController::class, 'banUser'])->middleware('auth:admin');
 
     Route::get('transactions',[\App\Http\Controllers\Admin\TransactionController::class, 'index'])->middleware('auth:admin');

@@ -17,9 +17,6 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('tx_id');
-            $table->string('tx_type');
-            $table->decimal('amount',32,16);
-            $table->string('status');
             $table->longText('comment')->nullable();
             $table->timestamps();
         });

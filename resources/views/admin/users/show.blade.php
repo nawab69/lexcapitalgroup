@@ -15,7 +15,7 @@
         <div class="card card-solid">
             <div class="card-body pb-0">
                 <div class="row d-flex align-items-center justify-content-center">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="card bg-light">
                             <div class="card-header text-muted border-bottom-0">
                                 Details
@@ -53,6 +53,143 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary h3">RECEIVE HISTORY</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Transaction ID</th>
+                                            <th>Sender</th>
+                                            <th>Recipient</th>
+                                            <th>Confirmation</th>
+                                            <th>Total Amount</th>
+                                            <th>Timestamp</th>
+                                            <th>Comment</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Transaction ID</th>
+                                            <th>Sender</th>
+                                            <th>Recipient</th>
+                                            <th>Confirmation</th>
+                                            <th>Total Amount</th>
+                                            <th>Timestamp</th>
+                                            <th>Comment</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                        @foreach($receive_items as $key => $sent)
+                                            <tr>
+                                                <td>{{$sent->txid}}</td>
+                                                <td>{{$sent->senders[0]}}</td>
+                                                <td>{{$sent->amounts_received[0]->recipient}}</td>
+                                                <td>{{$sent->confirmations}}</td>
+                                                <td>{{$sent->amounts_received[0]->amount}}</td>
+                                                <td>{{\Carbon\Carbon::parse($sent->time)}}</td>
+                                                <td>{{$sent->comment}}</td>
+                                                <td><form action="{{route('users.comment',$user->id)}}" method="post">
+                                                        @csrf
+                                                        <input class="form-control mb-1" type="text" placeholder="comment" value="{{$sent->comment}}" name="comment" />
+                                                        <input type="hidden" name="user_id" value="{{$user->id}}">
+                                                        <input type="hidden" name="tx_id" value="{{$sent->txid}}">
+                                                        <button type="submit" class="btn btn-primary">Update Comment</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Row -->
+
+                <div class="row">
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary h3">SENT HISTORY</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>Transaction ID</th>
+                                            <th>Sender</th>
+                                            <th>Recipient</th>
+                                            <th>Confirmation</th>
+                                            <th>Total Amount</th>
+                                            <th>Sent Amount</th>
+                                            <th>Timestamp</th>
+                                            <th>Comment</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Transaction ID</th>
+                                            <th>Sender</th>
+                                            <th>Recipient</th>
+                                            <th>Confirmation</th>
+                                            <th>Total Amount</th>
+                                            <th>Sent Amount</th>
+                                            <th>Timestamp</th>
+                                            <th>Comment</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                        @foreach($sent_items as $key => $sent)
+                                            <tr>
+                                                <td>{{$sent->txid}}</td>
+                                                <td>{{$user->wallet->btc_address}}</td>
+                                                <td>{{$sent->amounts_sent[0]->recipient}}</td>
+                                                <td>{{$sent->confirmations}}</td>
+                                                <td>{{$sent->total_amount_sent}}</td>
+                                                <td>{{$sent->amounts_sent[0]->amount}}</td>
+                                                <td>{{\Carbon\Carbon::parse($sent->time)}}</td>
+                                                <td>{{$sent->comment}}</td>
+                                                <td><form action="{{route('users.comment',$user->id)}}" method="post">
+                                                        @csrf
+                                                        <input class="form-control mb-1" type="text" placeholder="comment" value="{{$sent->comment}}" name="comment" />
+                                                        <input type="hidden" name="user_id" value="{{$user->id}}">
+                                                        <input type="hidden" name="tx_id" value="{{$sent->txid}}">
+                                                        <button type="submit" class="btn btn-primary">Update Comment</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -66,7 +203,31 @@
 
 {{--@stop--}}
 
-{{--@section('js')--}}
+@section('js')
 
+    <script src="{{asset('sbadmin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('vendor/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('vendor/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 
-{{--@stop--}}
+    <script>
+        $(document).ready(function() {
+
+            const rule = {
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": false,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+
+            };
+
+            $('#dataTable').DataTable(rule);
+            $('#dataTable2').DataTable(rule);
+            $('#dataTable3').DataTable(rule);
+        });
+    </script>
+
+@stop

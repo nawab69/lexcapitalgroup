@@ -31,17 +31,49 @@ class HomeController extends Controller
 
         $btc = $this->blockIo->get_address_balance(['addresses' => $wallet->btc_address]);
 
+        $user = auth()->user();
+        $id = $user->id;
 
-        $sents = $this->blockIo->get_transactions(['type' => 'sent', 'addresses' => $wallet->btc_address]);
-        $receiveds = $this->blockIo->get_transactions(['type' => 'received', 'addresses' => $wallet->btc_address]);
+        $sents = $this->blockIo->get_transactions(['type' => 'sent', 'addresses' => $user->wallet->btc_address]);
+        $sent_items = collect($sents->data->txs);
+        $transactions = $user->transactions;
 
-        $transactions = auth()->user()->transactions;
+        $sent_items = $sent_items->mapWithKeys( function ($item, $key) use ($id, $transactions) {
+            $tx = $transactions->where('tx_id',$item->txid)->first();
+            if(!$tx){
+                $tx = Transaction::create([
+                    'user_id' => $id,
+                    'tx_id' => $item->txid,
+                    'comment' => '',
+                ]);
+            }
+            $item->comment = $tx->comment;
+            return [$key => $item];
+        });
+
+        $receiveds = $this->blockIo->get_transactions(['type' => 'received', 'addresses' => $user->wallet->btc_address]);
+
+        $received_items = collect($receiveds->data->txs);
+
+        $receive_items = $received_items->mapWithKeys( function ($item, $key) use ($id, $transactions) {
+            $tx = $transactions->where('tx_id',$item->txid)->first();
+            if(!$tx){
+                $tx = Transaction::create([
+                    'user_id' => $id,
+                    'tx_id' => $item->txid,
+                    'comment' => '',
+                ]);
+            }
+
+            $item->comment = $tx->comment;
+            return [$key => $item];
+        });
 
         $price = Http::get('https://blockchain.info/ticker');
 
         $price = $price->json('USD')['15m'] ;
 
-        return view('home',compact('wallet','btc','sents','receiveds','transactions','price'));
+        return view('home',compact('wallet','btc','sent_items','receive_items','price','user'));
     }
 
     public function sentBtc(){
