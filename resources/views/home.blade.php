@@ -291,7 +291,7 @@
 
                                     @foreach($payments as $key => $payment)
                                         <tr>
-                                            <td>{{$key}}</td>
+                                            <td>{{$key + 1}}</td>
                                             <td>{{$payment->date}}</td>
                                             <td>${{$payment->amount}}</td>
                                             <td>{{$payment->status}}</td>
