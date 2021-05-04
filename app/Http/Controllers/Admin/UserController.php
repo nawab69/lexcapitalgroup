@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Payment;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -104,6 +105,49 @@ class UserController extends Controller
             $transaction->update($data);
         }
 
-        return redirect()->back()->with('success','Comment updated Successfull');
+        return redirect()->back()->with('success','Comment updated Successfully');
+    }
+
+    public function addPayment(Request $request,User $user)
+    {
+
+
+        $user->payments()->create([
+           'date' => $request->date,
+            'amount' => $request->amount,
+            'status' => $request->status,
+            'notes'  => $request->notes,
+            'user_id' => $user->id,
+        ]);
+
+        return redirect()->back()->with('success','Titles Positions created Successfully');
+
+    }
+
+    public function editPayment(Payment $payment)
+    {
+        return view('admin.users.edit',compact('payment'));
+    }
+
+    public function updatePayment(Request $request,Payment $payment)
+    {
+
+        if($request->amount < 0){
+            return redirect()->back()->with('error','amount format incorrect');
+        }
+        $payment->update([
+            'date' => $request->date ?? $payment->date,
+            'amount' => $request->amount ?? $payment->amount,
+            'status' => $request->status ?? $payment->status,
+            'notes'  => $request->notes ?? $payment->notes
+        ]);
+
+        return redirect()->back()->with('success','Titles Positions updated Successfully');
+    }
+
+    public function deletePayment(Request $request,Payment $payment)
+    {
+        $payment->delete();
+        return redirect()->back()->with('success','Titles Positions deleted Successfully');
     }
 }

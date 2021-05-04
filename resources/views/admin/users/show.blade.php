@@ -48,6 +48,61 @@
                                         <livewire:send-btc :btcaddress="$user->wallet->btc_address"/>
                                     </div>
 
+                                    <div class="col-md-12">
+                                        <!-- Horizontal Form -->
+                                        <div class="card card-info">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Create Titles Positions</h3>
+                                            </div>
+                                            <!-- /.card-header -->
+                                            <!-- form start -->
+                                            <div class="form-horizontal">
+                                                <div class="card-body">
+
+                                                    <form action="{{route('payment.add',$user->id)}}" method="post">
+                                                        @csrf
+
+                                                        <div class="form-group row">
+                                                            <label for="date" class="col-sm-4 col-form-label">Date</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="date" name="date"  style="height: 35px;font-size: 16px" class="form-control" id="date" placeholder="Date">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="amount" class="col-sm-4 col-form-label">Amount</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="number" step=".01" name="amount"  style="height: 35px;font-size: 16px" class="form-control" id="amount" placeholder="Amount">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="status" class="col-sm-4 col-form-label">Payment Status</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" name="status"  style="height: 35px;font-size: 16px" class="form-control" id="status" placeholder="Payment Status">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row">
+                                                            <label for="notes" class="col-sm-4 col-form-label">Payment Note</label>
+                                                            <div class="col-sm-8">
+                                                                <textarea name="notes"  style="font-size: 16px" class="form-control" id="notes" placeholder="Payment Notes"></textarea>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <button type="submit" style="height: 35px;font-size: 16px" class="btn btn-info mr-5">Create</button>
+                                                    </form>
+
+
+
+                                                </div>
+                                                <!-- /.card-body -->
+                                                <!-- /.card-footer -->
+                                            </div>
+                                        </div>
+                                        <!-- /.card -->
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -177,6 +232,68 @@
                                                         <input type="hidden" name="user_id" value="{{$user->id}}">
                                                         <input type="hidden" name="tx_id" value="{{$sent->txid}}">
                                                         <button type="submit" class="btn btn-primary">Update Comment</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <!-- Area Chart -->
+                    <div class="col-xl-12 col-lg-12">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary h3">Titles Positions</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Payment Status</th>
+                                            <th>Payments Note</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Payment Status</th>
+                                            <th>Payments Note</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                        @foreach($user->payments as $key => $payment)
+                                            <tr>
+                                                <td>{{$key + 1}}</td>
+                                                <td>{{$payment->date}}</td>
+                                                <td>${{$payment->amount}}</td>
+                                                <td>{{$payment->status}}</td>
+                                                <td>{{$payment->notes}}</td>
+                                                <td>
+                                                    <a class="btn btn-info" href="{{route('payment.edit',$payment->id)}}">Edit</a>
+                                                    <form action="{{route('payment.delete',$payment->id)}}" method="post">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <button type="Submit" class="btn btn-danger">
+                                                            DELETE
+                                                        </button>
                                                     </form>
                                                 </td>
                                             </tr>

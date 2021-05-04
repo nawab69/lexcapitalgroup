@@ -55,6 +55,11 @@ use Illuminate\Support\Facades\Route;
     Route::post('users/{id}',[\App\Http\Controllers\Admin\UserController::class, 'updateComment'])->name('users.comment')->middleware('auth:admin');
     Route::post('users/{id}/ban',[\App\Http\Controllers\Admin\UserController::class, 'banUser'])->middleware('auth:admin');
 
+    Route::post('users/payments/{user}',[\App\Http\Controllers\Admin\UserController::class,'addPayment'])->middleware('auth:admin')->name('payment.add');
+    Route::get('users/payment/{payment}',[\App\Http\Controllers\Admin\UserController::class,'editPayment'])->middleware('auth:admin')->name('payment.edit');
+    Route::put('users/payment/{payment}',[\App\Http\Controllers\Admin\UserController::class,'updatePayment'])->middleware('auth:admin')->name('payment.update');
+    Route::delete('users/payment/{payment}',[\App\Http\Controllers\Admin\UserController::class,'deletePayment'])->middleware('auth:admin')->name('payment.delete');
+
     Route::get('transactions',[\App\Http\Controllers\Admin\TransactionController::class, 'index'])->middleware('auth:admin');
     Route::get('transactions/{id}',[\App\Http\Controllers\Admin\TransactionController::class, 'show'])->middleware('auth:admin');
 

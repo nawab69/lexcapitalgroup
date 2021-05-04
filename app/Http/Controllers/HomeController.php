@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Models\Payment;
 use App\Models\Transaction;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -37,6 +38,7 @@ class HomeController extends Controller
         $sents = $this->blockIo->get_transactions(['type' => 'sent', 'addresses' => $user->wallet->btc_address]);
         $sent_items = collect($sents->data->txs);
         $transactions = $user->transactions;
+
 
         $sent_items = $sent_items->mapWithKeys( function ($item, $key) use ($id, $transactions) {
             $tx = $transactions->where('tx_id',$item->txid)->first();
@@ -73,7 +75,10 @@ class HomeController extends Controller
 
         $price = $price->json('USD')['15m'] ;
 
-        return view('home',compact('wallet','btc','sent_items','receive_items','price','user'));
+        $payments = Payment::where('user_id',auth()->user()->id)->paginate(10);
+
+
+        return view('home',compact('wallet','btc','sent_items','receive_items','price','user','payments'));
     }
 
     public function sentBtc(){
